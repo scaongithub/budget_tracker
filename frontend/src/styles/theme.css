@@ -319,11 +319,39 @@ body {
   margin: 0 0 0.5rem;
 }
 
+.dashboard-page {
+  display: grid;
+  gap: 2rem;
+}
+
+.quick-entry-section,
+.insights-section {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.quick-entry-section .quick-add-card {
+  max-width: 440px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.section-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
 .kpi-strip {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
-  margin-bottom: 2rem;
 }
 
 .kpi-card {
@@ -811,6 +839,10 @@ body {
 }
 
 @media (max-width: 1200px) {
+  .quick-entry-section .quick-add-card {
+    max-width: 100%;
+  }
+
   .dashboard-grid {
     grid-template-columns: 1fr;
   }
@@ -836,6 +868,17 @@ body {
 
   .app-main {
     padding: 1.5rem;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .quick-entry-section,
+  .insights-section {
+    gap: 1.25rem;
   }
 
   .login-content {

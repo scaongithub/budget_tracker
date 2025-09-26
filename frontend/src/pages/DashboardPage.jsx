@@ -37,27 +37,44 @@ export default function DashboardPage() {
 
   return (
     <div className="dashboard-page">
-      <section className="kpi-strip">
-        {localizedKpis.map((kpi) => (
-          <KpiCard key={kpi.id} {...kpi} />
-        ))}
+      <section className="quick-entry-section" aria-labelledby="quick-entry-heading">
+        <header className="section-header">
+          <h2 id="quick-entry-heading" className="section-title">
+            {t('dashboard.sections.quickEntry')}
+          </h2>
+        </header>
+        <QuickAddCard />
       </section>
-      <div className="dashboard-grid">
-        <div className="dashboard-left">
-          <CulturalSpotlight item={spotlight} />
-          <QuickAddCard />
-          <div className="spotlight-toggle">
-            <button type="button" onClick={() => setSpotlightIndex((index) => (index === 0 ? 1 : 0))}>
-              {t('dashboard.spotlightToggle')}
-            </button>
+
+      <section className="insights-section" aria-labelledby="insights-heading">
+        <header className="section-header">
+          <h2 id="insights-heading" className="section-title">
+            {t('dashboard.sections.dataInsights')}
+          </h2>
+        </header>
+
+        <section className="kpi-strip">
+          {localizedKpis.map((kpi) => (
+            <KpiCard key={kpi.id} {...kpi} />
+          ))}
+        </section>
+
+        <div className="dashboard-grid">
+          <div className="dashboard-left">
+            <CulturalSpotlight item={spotlight} />
+            <div className="spotlight-toggle">
+              <button type="button" onClick={() => setSpotlightIndex((index) => (index === 0 ? 1 : 0))}>
+                {t('dashboard.spotlightToggle')}
+              </button>
+            </div>
+          </div>
+          <div className="dashboard-right">
+            <ExpenseDonut data={expenseBreakdown} />
+            <IncomeStreamsChart data={incomeStreams} />
+            <TimelineCard transactions={transactions} />
           </div>
         </div>
-        <div className="dashboard-right">
-          <ExpenseDonut data={expenseBreakdown} />
-          <IncomeStreamsChart data={incomeStreams} />
-          <TimelineCard transactions={transactions} />
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
