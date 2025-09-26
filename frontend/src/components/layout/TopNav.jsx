@@ -4,15 +4,15 @@ import LanguageToggle from '../shared/LanguageToggle.jsx';
 import ProfileChips from '../shared/ProfileChips.jsx';
 
 const navLinks = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/categories', label: 'Categories' },
-  { to: '/reports', label: 'Reports' }
+  { to: '/dashboard', key: 'dashboard' },
+  { to: '/categories', key: 'categories' },
+  { to: '/reports', key: 'reports' }
 ];
 
 export default function TopNav() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { language } = useAppContext();
+  const { language, t } = useAppContext();
 
   const handleLogoKey = (event) => {
     if (event.key === 'Enter' || event.key === ' ') {
@@ -21,7 +21,7 @@ export default function TopNav() {
   };
 
   return (
-    <header className="top-nav" aria-label="Primary navigation">
+    <header className="top-nav" aria-label={t('nav.ariaPrimary')}>
       <div
         className="logo-block"
         onClick={() => navigate('/dashboard')}
@@ -32,10 +32,10 @@ export default function TopNav() {
         <span className="crest" aria-hidden>🌵</span>
         <div className="logo-text">
           <span className="logo-title">Paola &amp; Carlo</span>
-          <span className="logo-subtitle">Fusion Budget</span>
+          <span className="logo-subtitle">{t('nav.logoSubtitle')}</span>
         </div>
       </div>
-      <nav className="nav-links" aria-label="Main pages">
+      <nav className="nav-links" aria-label={t('nav.ariaPages')}>
         {navLinks.map((link) => (
           <NavLink
             key={link.to}
@@ -44,7 +44,7 @@ export default function TopNav() {
               isActive || location.pathname === '/' ? 'nav-link nav-link-active' : 'nav-link'
             }
           >
-            {link.label}
+            {t(`nav.links.${link.key}`)}
           </NavLink>
         ))}
       </nav>

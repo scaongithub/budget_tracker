@@ -1,54 +1,75 @@
 export const kpis = [
-  {
-    label: 'Total Income',
-    value: '€6,200',
-    change: '+8% vs last month',
-    tone: 'warm'
-  },
-  {
-    label: 'Total Expenses',
-    value: '€4,150',
-    change: '-3% vs last month',
-    tone: 'cool'
-  },
-  {
-    label: 'Remaining Budget',
-    value: '€2,050',
-    change: 'Paola 48% / Carlo 52%',
-    tone: 'neutral'
-  }
+  { id: 'totalIncome', value: 6200, tone: 'warm' },
+  { id: 'totalExpenses', value: 4150, tone: 'cool' },
+  { id: 'remainingBudget', value: 2050, tone: 'neutral' }
 ];
 
 export const expenseBreakdown = [
-  { name: 'Groceries', value: 800, fill: '#E94256' },
-  { name: 'Rent', value: 1500, fill: '#1F3C88' },
-  { name: 'Transport', value: 320, fill: '#F7B538' },
-  { name: 'Dining', value: 450, fill: '#2FA36B' },
-  { name: 'Culture', value: 280, fill: '#C56A1A' }
+  { id: 'groceries', value: 800, fill: '#E94256' },
+  { id: 'rent', value: 1500, fill: '#1F3C88' },
+  { id: 'transport', value: 320, fill: '#F7B538' },
+  { id: 'dining', value: 450, fill: '#2FA36B' },
+  { id: 'culture', value: 280, fill: '#C56A1A' }
 ];
 
 export const incomeStreams = [
-  { name: 'Paola Art Studio', paola: 2400, carlo: 400 },
-  { name: 'Carlo Consultancy', paola: 600, carlo: 2600 },
-  { name: 'Shared Rentals', paola: 300, carlo: 600 }
+  { id: 'paolaStudio', paola: 2400, carlo: 400 },
+  { id: 'carloConsultancy', paola: 600, carlo: 2600 },
+  { id: 'sharedRentals', paola: 300, carlo: 600 }
 ];
 
 export const transactions = [
-  { id: 1, label: 'Mercado Roma groceries', amount: '-€120', tag: 'Paola', tone: 'mexico' },
-  { id: 2, label: 'Florence metro passes', amount: '-€45', tag: 'Carlo', tone: 'italy' },
-  { id: 3, label: 'Wedding photography gig', amount: '+€650', tag: 'Paola', tone: 'mexico' },
-  { id: 4, label: 'Espresso bar pop-up', amount: '+€380', tag: 'Carlo', tone: 'italy' }
+  {
+    id: 1,
+    name: 'mercadoGroceries',
+    person: 'Paola',
+    amount: -120,
+    date: '2024-05-12',
+    tone: 'mexico'
+  },
+  {
+    id: 2,
+    name: 'florenceMetro',
+    person: 'Carlo',
+    amount: -45,
+    date: '2024-05-10',
+    tone: 'italy'
+  },
+  {
+    id: 3,
+    name: 'weddingPhotography',
+    person: 'Paola',
+    amount: 650,
+    date: '2024-05-08',
+    tone: 'mexico'
+  },
+  {
+    id: 4,
+    name: 'espressoPopup',
+    person: 'Carlo',
+    amount: 380,
+    date: '2024-05-06',
+    tone: 'italy'
+  },
+  {
+    id: 5,
+    name: 'artSupplies',
+    person: 'Paola',
+    amount: -85,
+    date: '2024-05-03',
+    tone: 'mexico'
+  },
+  {
+    id: 6,
+    name: 'consultingRetainer',
+    person: 'Carlo',
+    amount: 900,
+    date: '2024-05-01',
+    tone: 'italy'
+  }
 ];
 
 export const spotlightItems = [
-  {
-    title: "Paola's Spotlight",
-    description: 'Prepara enchiladas suizas en casa para ahorrar €25 esta semana.',
-    accent: 'mexico'
-  },
-  {
-    title: "Carlo's Spotlight",
-    description: 'Usa el abono mensual del tranvía y ahorra €15 en combustible.',
-    accent: 'italy'
-  }
+  { id: 'paola', accent: 'mexico' },
+  { id: 'carlo', accent: 'italy' }
 ];

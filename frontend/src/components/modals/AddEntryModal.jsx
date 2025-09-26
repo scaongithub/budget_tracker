@@ -10,15 +10,10 @@ const initialForm = {
   split: 50
 };
 
-const categories = [
-  { value: 'groceries', label: 'Groceries' },
-  { value: 'transport', label: 'Transport' },
-  { value: 'housing', label: 'Housing' },
-  { value: 'leisure', label: 'Leisure' }
-];
+const categories = ['groceries', 'transport', 'housing', 'leisure'];
 
 export default function AddEntryModal() {
-  const { modalState, closeModal, setModalTab } = useAppContext();
+  const { modalState, closeModal, setModalTab, t } = useAppContext();
   const [form, setForm] = useState(initialForm);
 
   const handleClose = () => {
@@ -44,8 +39,8 @@ export default function AddEntryModal() {
     <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="entry-modal-title">
       <div className="modal-card">
         <header className="modal-header">
-          <h2 id="entry-modal-title">Registrar Movimiento</h2>
-          <div className="modal-tabs" role="tablist" aria-label="Choose entry type">
+          <h2 id="entry-modal-title">{t('modal.title')}</h2>
+          <div className="modal-tabs" role="tablist" aria-label={t('modal.ariaTabs')}>
             {['income', 'expense'].map((tab) => (
               <button
                 key={tab}
@@ -55,16 +50,16 @@ export default function AddEntryModal() {
                 className={modalState.tab === tab ? 'modal-tab active' : 'modal-tab'}
                 onClick={() => setModalTab(tab)}
               >
-                {tab === 'income' ? 'Registrar Ingreso' : 'Registrar Gasto'}
+                {t(`modal.tabs.${tab}`)}
               </button>
             ))}
           </div>
-          <p className="modal-subtitle">Sombrero &amp; gondola sliders to split contributions.</p>
+          <p className="modal-subtitle">{t('modal.subtitle')}</p>
         </header>
         <form className="modal-form" onSubmit={handleSubmit}>
           <div className="field-grid">
             <label>
-              <span>Monto (€)</span>
+              <span>{t('modal.amount')}</span>
               <input
                 name="amount"
                 type="number"
@@ -76,26 +71,26 @@ export default function AddEntryModal() {
               />
             </label>
             <label>
-              <span>Fecha</span>
+              <span>{t('modal.date')}</span>
               <input name="date" type="date" value={form.date} onChange={handleChange} required />
             </label>
           </div>
           <label>
-            <span>Descripción</span>
+            <span>{t('modal.description')}</span>
             <input name="description" type="text" value={form.description} onChange={handleChange} />
           </label>
           <label>
-            <span>Categoría</span>
+            <span>{t('modal.category')}</span>
             <select name="category" value={form.category} onChange={handleChange}>
               {categories.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
+                <option key={option} value={option}>
+                  {t(`modal.categories.${option}`)}
                 </option>
               ))}
             </select>
           </label>
           <label className="slider-field">
-            <span>Repartir entre Paola (sombrero) y Carlo (góndola)</span>
+            <span>{t('modal.split')}</span>
             <input
               type="range"
               min="0"
@@ -111,10 +106,10 @@ export default function AddEntryModal() {
           </label>
           <footer className="modal-actions">
             <PillButton type="submit" variant="primary">
-              {modalState.tab === 'income' ? 'Guardar Ingreso' : 'Guardar Gasto'}
+              {modalState.tab === 'income' ? t('modal.saveIncome') : t('modal.saveExpense')}
             </PillButton>
             <PillButton type="button" variant="ghost" onClick={handleClose}>
-              Cancelar
+              {t('modal.cancel')}
             </PillButton>
           </footer>
         </form>

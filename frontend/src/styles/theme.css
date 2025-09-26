@@ -451,43 +451,70 @@ body {
   box-shadow: var(--shadow-soft);
 }
 
-.timeline-card ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
+.timeline-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  font-size: 0.85rem;
 }
 
-.timeline-card li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-radius: var(--radius-sm);
+.timeline-table th,
+.timeline-table td {
+  padding: 0.6rem 0.75rem;
+}
+
+.timeline-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-600);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.timeline-table tbody tr {
+  background: transparent;
+}
+
+.timeline-table tbody td {
   background: var(--surface-200);
+  font-size: 0.9em;
 }
 
-.timeline-card li.mexico {
-  border-left: 5px solid var(--fiesta-red);
+.timeline-table tbody td:first-child {
+  border-top-left-radius: var(--radius-sm);
+  border-bottom-left-radius: var(--radius-sm);
+  border-left: 4px solid transparent;
 }
 
-.timeline-card li.italy {
-  border-left: 5px solid var(--mediterranean-navy);
+.timeline-table tbody td:last-child {
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
 }
 
-.tx-tag {
-  display: inline-block;
-  margin-top: 0.35rem;
-  padding: 0.2rem 0.6rem;
-  border-radius: 999px;
-  background: white;
-  font-size: 0.75rem;
+.timeline-row.mexico td:first-child {
+  border-left-color: var(--fiesta-red);
+}
+
+.timeline-row.italy td:first-child {
+  border-left-color: var(--mediterranean-navy);
+}
+
+.align-right {
+  text-align: right;
 }
 
 .tx-amount {
   font-weight: 700;
   font-family: var(--font-heading);
+}
+
+.tx-amount.positive {
+  color: var(--mediterranean-navy);
+}
+
+.tx-amount.negative {
+  color: var(--fiesta-red);
 }
 
 .category-layout {
