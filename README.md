@@ -210,3 +210,15 @@ uvicorn app.main:app --reload
 ```
 
 The interactive API documentation is available at `http://localhost:8000/docs` after the server starts.
+
+### Deployment on Railway
+
+Railway requires an explicit start command for custom Python projects. This repository now includes a
+`Procfile` with the following entry so the service can be launched automatically during deployment:
+
+```
+web: uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}
+```
+
+If you prefer to override the default command, you can adjust the `Procfile` or configure the start
+command directly in the Railway dashboard.
