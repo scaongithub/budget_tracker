@@ -2,23 +2,23 @@ import { useState } from 'react';
 import { useAppContext } from '../../context/AppContext.jsx';
 import PillButton from '../shared/PillButton.jsx';
 
-const initialForm = {
+const createInitialForm = () => ({
   amount: '',
-  date: '',
+  date: new Date().toISOString().split('T')[0],
   description: '',
   category: 'groceries',
   split: 50
-};
+});
 
 const categories = ['groceries', 'transport', 'housing', 'leisure'];
 
 export default function AddEntryModal() {
   const { modalState, closeModal, setModalTab, t } = useAppContext();
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(createInitialForm());
 
   const handleClose = () => {
     closeModal();
-    setForm(initialForm);
+    setForm(createInitialForm());
   };
 
   const handleChange = (evt) => {
