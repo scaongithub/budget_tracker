@@ -179,3 +179,14 @@ Relationships: One-to-Many (Users to Incomes/Expenses; Categories to Subcategori
 - Proceed to design phase: Wireframes and prototypes.
 - Development timeline: Estimate 4-6 weeks for MVP (Minimum Viable Product).
 - Testing: Unit, integration, and user acceptance testing.
+
+## Frontend Prototype
+
+The `frontend/` directory now contains a Vite-powered React prototype that brings the cultural fusion wireframes to life. It covers:
+
+- **Login & Welcome Screen:** Split hero background with bilingual messaging and animated gradient CTAs.
+- **Dashboard:** KPI ribbon, cultural spotlight widget, quick add actions, and chart-driven overview using mocked data.
+- **Category Management:** Filterable table/cards with inline creation form and cultural tags.
+- **Reports:** Filter controls, stacked/line charts, and a monthly summary table ready for export actions.
+
+Run `npm install` followed by `npm run dev` inside `frontend/` to explore the experience locally.

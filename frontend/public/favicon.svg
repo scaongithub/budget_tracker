@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="fusion" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E94256" />
+      <stop offset="50%" stop-color="#F7B538" />
+      <stop offset="100%" stop-color="#1F3C88" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="url(#fusion)" />
+  <path
+    d="M38 64c14-6 18-26 44-32 6 12 8 28-4 40 16 2 22 12 12 26-20-10-32-4-44 8-12-16-26-24-8-42Z"
+    fill="#fff"
+    opacity="0.85"
+  />
+</svg>
