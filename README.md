@@ -190,3 +190,19 @@ The `frontend/` directory now contains a Vite-powered React prototype that bring
 - **Reports:** Filter controls, stacked/line charts, and a monthly summary table ready for export actions.
 
 Run `npm install` followed by `npm run dev` inside `frontend/` to explore the experience locally.
+
+## Deployment
+
+### Vercel
+
+This repository includes a `vercel.json` configuration that lets you deploy the React frontend located in `frontend/` directly to Vercel:
+
+1. Create a new project in Vercel and select this repository.
+2. When prompted for project settings, set the root directory to `frontend/` or leave it empty—Vercel reads `vercel.json` at the repository root to discover the build.
+3. Confirm the following settings (automatically inferred by the configuration):
+   - **Build Command:** `npm run build`
+   - **Install Command:** `npm install`
+   - **Output Directory:** `dist`
+4. Deploy the project. The included route configuration ensures that client-side routing falls back to `index.html` so React Router works correctly on Vercel.
+
+For local verification of the production build, run `npm run build` inside `frontend/` to generate the optimized assets in `frontend/dist/`.
