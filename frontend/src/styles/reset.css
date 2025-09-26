@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Lora', 'Times New Roman', serif;
+  background: var(--surface-100);
+  color: var(--text-900);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
