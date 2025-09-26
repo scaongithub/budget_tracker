@@ -2,15 +2,15 @@ import PillButton from '../shared/PillButton.jsx';
 import { useAppContext } from '../../context/AppContext.jsx';
 
 export default function QuickAddCard() {
-  const { openModal } = useAppContext();
+  const { openModal, t } = useAppContext();
   return (
     <article className="quick-add-card">
-      <h3>Quick Add</h3>
-      <p>Captura ingresos y gastos con toques culturales personalizados.</p>
+      <h3>{t('dashboard.quickAdd.title')}</h3>
+      <p>{t('dashboard.quickAdd.description')}</p>
       <div className="quick-add-actions">
-        <PillButton onClick={() => openModal('income')}>Add Income</PillButton>
+        <PillButton onClick={() => openModal('income')}>{t('dashboard.quickAdd.addIncome')}</PillButton>
         <PillButton variant="secondary" onClick={() => openModal('expense')}>
-          Add Expense
+          {t('dashboard.quickAdd.addExpense')}
         </PillButton>
       </div>
     </article>

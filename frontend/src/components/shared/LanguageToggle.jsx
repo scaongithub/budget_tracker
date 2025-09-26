@@ -1,4 +1,3 @@
-import { useMemo } from 'react';
 import { useAppContext } from '../../context/AppContext.jsx';
 
 const languages = [
@@ -8,20 +7,12 @@ const languages = [
 ];
 
 export default function LanguageToggle({ current }) {
-  const { toggleLanguage } = useAppContext();
-  const label = useMemo(() => {
-    switch (current) {
-      case 'es':
-        return 'Idioma actual español';
-      case 'it':
-        return 'Lingua attuale italiana';
-      default:
-        return 'Current language English';
-    }
-  }, [current]);
+  const { toggleLanguage, t } = useAppContext();
+  const label = t('languageToggle.current');
+  const groupLabel = t('languageToggle.primaryLabel');
 
   return (
-    <div className="language-toggle" role="group" aria-label={label}>
+    <div className="language-toggle" role="group" aria-label={groupLabel}>
       {languages.map((lang) => (
         <button
           key={lang.code}
@@ -29,6 +20,7 @@ export default function LanguageToggle({ current }) {
           className={lang.code === current ? 'pill active' : 'pill'}
           onClick={() => toggleLanguage(lang.code)}
           aria-pressed={lang.code === current}
+          aria-label={lang.code === current ? label : undefined}
         >
           {lang.label}
         </button>

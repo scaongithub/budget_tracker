@@ -4,7 +4,7 @@ import { useAppContext } from '../context/AppContext.jsx';
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const { toggleLanguage, language } = useAppContext();
+  const { toggleLanguage, language, t } = useAppContext();
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -16,17 +16,16 @@ export default function LoginPage() {
       <div className="hero-background" aria-hidden />
       <div className="login-content">
         <section className="hero-copy">
-          <h1>
-            <span>Bienvenidos</span> / <span>Benvenuti</span>
-          </h1>
-          <p>Una herramienta vibrante para armonizar los sueños de Paola y Carlo.</p>
-          <div className="language-pill-group" role="group" aria-label="Idioma principal">
+          <h1>{t('login.heroHeading')}</h1>
+          <p>{t('login.heroSubtitle')}</p>
+          <div className="language-pill-group" role="group" aria-label={t('languageToggle.primaryLabel')}>
             {['es', 'it', 'en'].map((code) => (
               <button
                 key={code}
                 type="button"
                 className={code === language ? 'hero-pill active' : 'hero-pill'}
                 onClick={() => toggleLanguage(code)}
+                aria-pressed={code === language}
               >
                 {code.toUpperCase()}
               </button>
@@ -34,20 +33,20 @@ export default function LoginPage() {
           </div>
         </section>
         <section className="login-card" aria-labelledby="login-title">
-          <h2 id="login-title">Access Your Budget</h2>
+          <h2 id="login-title">{t('login.accessTitle')}</h2>
           <form onSubmit={handleSubmit} className="login-form">
             <label>
-              <span>Email</span>
+              <span>{t('login.email')}</span>
               <input type="email" name="email" placeholder="paola.carlo@email.com" required />
             </label>
             <label>
-              <span>Password</span>
+              <span>{t('login.password')}</span>
               <input type="password" name="password" required />
             </label>
             <PillButton type="submit" className="login-submit">
-              Entrar / Accedi
+              {t('login.submit')}
             </PillButton>
-            <a className="forgot-link" href="#">Forgot Password?</a>
+            <a className="forgot-link" href="#">{t('login.forgot')}</a>
           </form>
         </section>
       </div>

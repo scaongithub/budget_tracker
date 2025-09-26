@@ -1,11 +1,15 @@
+import { useAppContext } from '../../context/AppContext.jsx';
+
 const profiles = [
   { name: 'Paola', icon: '🎉', accent: 'mexico' },
   { name: 'Carlo', icon: '☕', accent: 'italy' }
 ];
 
 export default function ProfileChips() {
+  const { t } = useAppContext();
+
   return (
-    <div className="profile-chips" role="group" aria-label="Profiles">
+    <div className="profile-chips" role="group" aria-label={t('common.profilesLabel')}>
       {profiles.map((profile) => (
         <span key={profile.name} className={`profile-chip ${profile.accent}`}>
           <span aria-hidden>{profile.icon}</span>

@@ -1,37 +1,24 @@
-export const categoryFilters = [
-  { label: 'All', value: 'all' },
-  { label: 'Mexican', value: 'mexico' },
-  { label: 'Italian', value: 'italy' },
-  { label: 'Fusion', value: 'fusion' }
-];
+export const categoryFilters = ['all', 'mexico', 'italy', 'fusion'];
 
 export const categories = [
   {
-    name: 'Groceries',
+    id: 'groceries',
     subcategories: 6,
-    culture: 'Fusion',
-    tone: 'fusion',
-    description: 'Mercados locales + Mercato Centrale'
+    tone: 'fusion'
   },
   {
-    name: 'Housing',
+    id: 'housing',
     subcategories: 3,
-    culture: 'Italian',
-    tone: 'italy',
-    description: 'Apartamento en Trastevere'
+    tone: 'italy'
   },
   {
-    name: 'Celebrations',
+    id: 'celebrations',
     subcategories: 5,
-    culture: 'Mexican',
-    tone: 'mexico',
-    description: 'Fiestas familiares y festivales'
+    tone: 'mexico'
   },
   {
-    name: 'Travel',
+    id: 'travel',
     subcategories: 4,
-    culture: 'Fusion',
-    tone: 'fusion',
-    description: 'Visitas a familia en CDMX y Roma'
+    tone: 'fusion'
   }
 ];
