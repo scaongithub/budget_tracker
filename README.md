@@ -179,3 +179,34 @@ Relationships: One-to-Many (Users to Incomes/Expenses; Categories to Subcategori
 - Proceed to design phase: Wireframes and prototypes.
 - Development timeline: Estimate 4-6 weeks for MVP (Minimum Viable Product).
 - Testing: Unit, integration, and user acceptance testing.
+
+## Backend Implementation
+
+An initial Python/FastAPI backend is available in the `app/` directory. It exposes RESTful endpoints for user management, authentication, incomes, expenses, categories, and subcategories backed by a MySQL database.
+
+### Prerequisites
+
+- Python 3.10+
+- MySQL 8.x (or compatible)
+
+### Setup
+
+1. Create a Python virtual environment and install dependencies:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -r requirements.txt
+   ```
+
+2. Configure environment variables by copying `.env.example` to `.env` and updating the database credentials or by providing a full `DATABASE_URL` connection string.
+
+3. Ensure a MySQL database exists that matches the configured credentials (default: `budget_tracker`). Tables will be created automatically on application startup.
+
+### Running the API
+
+```bash
+uvicorn app.main:app --reload
+```
+
+The interactive API documentation is available at `http://localhost:8000/docs` after the server starts.
