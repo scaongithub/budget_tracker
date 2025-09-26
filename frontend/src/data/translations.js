@@ -31,6 +31,10 @@ export const translations = {
       }
     },
     dashboard: {
+      sections: {
+        quickEntry: 'Añadir movimientos',
+        dataInsights: 'Datos y estadísticas'
+      },
       quickAdd: {
         title: 'Registro rápido',
         description: 'Captura ingresos y gastos con toques culturales personalizados.',
@@ -245,6 +249,10 @@ export const translations = {
       }
     },
     dashboard: {
+      sections: {
+        quickEntry: 'Registra movimenti',
+        dataInsights: 'Dati e statistiche'
+      },
       quickAdd: {
         title: 'Aggiunta rapida',
         description: 'Registra entrate e uscite con tocchi culturali personalizzati.',
@@ -459,6 +467,10 @@ export const translations = {
       }
     },
     dashboard: {
+      sections: {
+        quickEntry: 'Add new entry',
+        dataInsights: 'Data & insights'
+      },
       quickAdd: {
         title: 'Quick add',
         description: 'Capture income and expenses with personalized cultural flair.',
